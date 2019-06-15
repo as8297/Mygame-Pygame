@@ -30,7 +30,10 @@ def run_game():
     while True:
 
         # Using GameFuntion to check if game is exited
-        gf.check_events()
+        #gf.check_events()
+
+        # Tracking the ship movement
+        gf.check_events(ship)
 
         # Screen Update Function
         gf.update_screen(ai_settings,screen,ship,bolt)
