@@ -3,6 +3,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 import game_function as gf
+from bolt import Bolt
 
 def run_game():
     # Initialize the game and create a screen object.
@@ -21,6 +22,10 @@ def run_game():
     # Make a ship
     ship = Ship(screen)
 
+    # Make a bolt
+    bolt = Bolt(screen)
+
+
     #start with main loop
     while True:
 
@@ -28,6 +33,6 @@ def run_game():
         gf.check_events()
 
         # Screen Update Function
-        gf.update_screen(ai_settings, screen, ship)
+        gf.update_screen(ai_settings,screen,ship,bolt)
         
 run_game()
