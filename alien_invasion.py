@@ -41,7 +41,10 @@ def run_game():
         ship.update()
 
         bullets.update()
-        
+
+        # Get rid of bullets that have disappeared.
+        gf.update_bullets(bullets)
+
         # Screen Update Function
         gf.update_screen(ai_settings,screen,ship,bolt,bullets)
         
