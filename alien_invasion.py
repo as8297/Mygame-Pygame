@@ -4,6 +4,7 @@ from settings import Settings
 from ship import Ship
 import game_function as gf
 from bolt import Bolt
+from pygame.sprite import Group
 
 def run_game():
     # Initialize the game and create a screen object.
@@ -22,6 +23,9 @@ def run_game():
     # Make a ship
     ship = Ship(ai_settings,screen)
 
+    # Make a group to store bullets in.
+    bullets = Group()
+
     # Make a bolt
     bolt = Bolt(screen)
 
@@ -32,11 +36,13 @@ def run_game():
         # Using GameFuntion to check if game is exited
         #gf.check_events()
 
-        # Tracking the ship movement
-        gf.check_events(ship)
+        # Tracking the elements movement
+        gf.check_events(ai_settings,screen,ship,bolt,bullets)
         ship.update()
 
+        bullets.update()
+        
         # Screen Update Function
-        gf.update_screen(ai_settings,screen,ship,bolt)
+        gf.update_screen(ai_settings,screen,ship,bolt,bullets)
         
 run_game()
