@@ -20,7 +20,7 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
 
     # Make a ship
-    ship = Ship(screen)
+    ship = Ship(ai_settings,screen)
 
     # Make a bolt
     bolt = Bolt(screen)
@@ -34,6 +34,7 @@ def run_game():
 
         # Tracking the ship movement
         gf.check_events(ship)
+        ship.update()
 
         # Screen Update Function
         gf.update_screen(ai_settings,screen,ship,bolt)
