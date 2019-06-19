@@ -1,18 +1,18 @@
 import sys,pygame
 from bullet import Bullet
 
-def check_events(ai_settings, screen, ship, alien_ship, bullets) :
+def check_events(ai_settings, screen, ship, bullets) :
     ''' This checks actions and responds to the mouse and  keyboard input '''
     for event in pygame.event.get() :
         if event.type == pygame.QUIT :
             sys.exit()
         elif event.type == pygame.KEYDOWN :
-            key_press(event,ai_settings,screen,ship,alien_ship,bullets)
+            key_press(event,ai_settings,screen,ship,bullets)
         elif event.type == pygame.KEYUP :
             key_unpress(event,ship)
 
 # function to check wether any key is pressed
-def key_press(event,ai_settings,screen,ship,alien_ship,bullets):
+def key_press(event,ai_settings,screen,ship,bullets):
     """Respond to keypresses """
     if event.key == pygame.K_RIGHT:
         ship.moving_right = True
@@ -31,7 +31,7 @@ def key_unpress(event,ship):
     if event.key == pygame.K_LEFT:
         ship.moving_left = False 
 
-def update_screen(ai_settings,screen,ship,alien_ship,bullets):
+def update_screen(ai_settings,screen,ship,alien,bullets):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
     screen.fill(ai_settings.bg_color)
@@ -41,7 +41,7 @@ def update_screen(ai_settings,screen,ship,alien_ship,bullets):
         bullet.draw_bullet()
 
     ship.blitme()
-    alien_ship.blitme()
+    alien.blitme()
 
     # Make the most recently drawn screen visible.
     pygame.display.flip()
