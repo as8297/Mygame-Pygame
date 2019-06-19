@@ -3,7 +3,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 import game_function as gf
-from bolt import Bolt
+from alien_ship import Alien_ship
 from pygame.sprite import Group
 
 def run_game():
@@ -26,8 +26,8 @@ def run_game():
     # Make a group to store bullets in.
     bullets = Group()
 
-    # Make a bolt
-    bolt = Bolt(screen)
+    # Make a alien_ship
+    alien_ship = Alien_ship(screen)
 
 
     #start with main loop
@@ -37,7 +37,7 @@ def run_game():
         #gf.check_events()
 
         # Tracking the elements movement
-        gf.check_events(ai_settings,screen,ship,bolt,bullets)
+        gf.check_events(ai_settings,screen,ship,alien_ship,bullets)
         ship.update()
 
         bullets.update()
@@ -46,6 +46,6 @@ def run_game():
         gf.update_bullets(bullets)
 
         # Screen Update Function
-        gf.update_screen(ai_settings,screen,ship,bolt,bullets)
+        gf.update_screen(ai_settings,screen,ship,alien_ship,bullets)
         
 run_game()
