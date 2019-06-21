@@ -36,12 +36,10 @@ def run_game():
         # Tracking the elements movement
         gf.check_events(ai_settings=ai_settings,screen=screen,ship=ship,bullets=bullets)
         ship.update()
-
         bullets.update()
-
         # Get rid of bullets that have disappeared.
         gf.update_bullets(bullets)
-
+        gf.update_aliens(ai_settings,aliens)
         # Screen Update Function
         gf.update_screen(ai_settings=ai_settings,screen=screen,ship=ship,aliens=aliens,bullets=bullets)
         
