@@ -18,6 +18,7 @@ class Alien():
         
         # Store the alien's exact position.
         self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
 
     def blitme(self):
         ''' Draw the ship at its current location '''
@@ -28,7 +29,7 @@ class Alien():
         screen_rect = self.screen.get_rect()
         if self.rect.right >= screen_rect.right:
             return True
-        elif self.rect.left <= 0:
+        elif self.rect.left <= 0 :
             return True
     
     def update(self):
